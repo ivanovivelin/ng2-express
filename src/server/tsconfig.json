@@ -1,0 +1,54 @@
+{
+  "compilerOptions": {
+    "target": "ES5",
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "sourceRoot": "./src/server",
+    "outDir": "../../server",
+    "sourceMap": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "removeComments": false,
+    "noImplicitAny": false,
+    "typeRoots": [
+      "../../node_modules/@types"
+    ],
+    "types": [
+      "node"
+    ]
+  },
+  "filesGlob": [
+    "!../../node_modules",
+    "../../node_modules/@types/**/*.d.ts",
+    "**/*.ts"
+  ],
+  "atom": {
+    "rewriteTsconfig": true
+  },
+  "files": [
+    "../../node_modules/@types/body-parser/index.d.ts",
+    "../../node_modules/@types/compression/index.d.ts",
+    "../../node_modules/@types/core-js/index.d.ts",
+    "../../node_modules/@types/express-serve-static-core/index.d.ts",
+    "../../node_modules/@types/express-session/index.d.ts",
+    "../../node_modules/@types/express/index.d.ts",
+    "../../node_modules/@types/form-data/index.d.ts",
+    "../../node_modules/@types/jsonwebtoken/index.d.ts",
+    "../../node_modules/@types/lodash/index.d.ts",
+    "../../node_modules/@types/mime/index.d.ts",
+    "../../node_modules/@types/node/index.d.ts",
+    "../../node_modules/@types/pug/index.d.ts",
+    "../../node_modules/@types/query-string/index.d.ts",
+    "../../node_modules/@types/request/index.d.ts",
+    "../../node_modules/@types/serve-static/index.d.ts",
+    "../../node_modules/@types/source-map/index.d.ts",
+    "../../node_modules/@types/uglify-js/index.d.ts",
+    "app.ts",
+    "config/express.ts",
+    "config/login-openid.ts",
+    "config/passport-openid.ts",
+    "config/redis.ts",
+    "routes/common/cfenv.ts",
+    "routes/io"
+  ]
+}
