@@ -77,12 +77,14 @@ process.on('uncaughtException',  (err: any): any => {
     process.exit(1);
 });
 
+/*
 process.on('exit',  (err: any, res: any): any => {
     console.info(`$app.ts (exit) => fatal error, system shutting down : ${errMsg}`);
     setTimeout(
         () => { process.exit(1); }
         , 1000);
 });
+*/
 
 server.listen(app.get('port'), () => {
     console.info(`$app => server listening with node -v ${process.version} on port ${app.get('port')}`);
