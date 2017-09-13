@@ -39,8 +39,8 @@ app.get('/auth/facebook/callback',
   (req, res) => {
           res.redirect('/help');
 });
-
-app.get('/', ensureAuthenticated , (req: any, res: any) => {
+// add ensureAuthenticated to prorect the main route
+app.get('/' , (req: any, res: any) => {
     res.setHeader('Last-Modified', (new Date()).toUTCString());
     req.headers['if-none-match'] = 'no-match-for-this';
     res.sendFile(path.join(__dirname, '../dist/client/index.html'));

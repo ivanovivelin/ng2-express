@@ -4,7 +4,7 @@ import { Component, HostBinding, OnInit } from '@angular/core';
 import { LoginService } from '../modules/login';
 import { Env } from '../modules/env';
 import { ViewContainerRef } from '@angular/core';
-import { SocketService } from '../modules/socket';
+import {SocketService} from '../modules/socket';
 //import { Store } from '@ngrx/store';
 
 @Component({
@@ -23,13 +23,16 @@ export class SiteBodyComponent {
     public ngOnInit(): void {
         console.info('$site.body (init)=> logging in');
         this.loginService.setUser();
-        this.socket.getData({
-                application: 'NG2',
-                function: 'provideFilters',
-                script: '/queueservice/filterbuilder',
-                data: {
-                    user: '',
-                },
-       });
+        this.socket.module('all', {
+            data: "Emitting",
+            channel: "NG2"
+        });        
+    }
+
+    public sendMessage() {
+        this.socket.module('all', {
+            data: "Emitting",
+            channel: "NG2"
+        });
     }
 }
