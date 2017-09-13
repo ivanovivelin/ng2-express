@@ -8,7 +8,6 @@ import { LocalStorage } from './modules/local.storage';
 import { LoginService } from './modules/login';
 import { Env } from './modules/env';
 import { DTS } from './modules/dts';
-import { MaterialModule } from '@angular/material';
 import { SiteComponents } from './site/site.components';
 import { SiteBodyComponent } from './site/site.body.component';
 import { SiteMastheadComponent } from './site/site.masthead.component';
@@ -17,13 +16,6 @@ import { NotauthComponent } from './app/notauth/notauth.component';
 import { HomeMainComponent } from './app/home/home.main.component';
 import { HelpComponent } from './app/help/help.component';
 import { Routing } from './main.routing';
-import { MessagesModule } from 'primeng/primeng';
-import { InputTextModule } from 'primeng/primeng';
-import { PasswordModule } from 'primeng/primeng';
-import { ButtonModule } from 'primeng/primeng';
-import { DataTableModule, SharedModule } from 'primeng/primeng';
-import { DialogModule } from 'primeng/primeng';
-import {MenubarModule, MenuItem} from 'primeng/primeng';
 import { SocketService } from './modules/socket';
 @NgModule({
   declarations: [
@@ -38,18 +30,10 @@ import { SocketService } from './modules/socket';
   imports: [
     BrowserModule,
     FormsModule,
-    MenubarModule,
     HttpModule,
-    MaterialModule.forRoot(),
     Routing,
     ReactiveFormsModule,
-     MessagesModule,
-    InputTextModule,
-    PasswordModule,
     ReactiveFormsModule,
-    DataTableModule,
-    SharedModule,
-    DialogModule,
   ],
   providers: [
     DTS,

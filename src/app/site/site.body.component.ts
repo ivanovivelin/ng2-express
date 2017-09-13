@@ -3,7 +3,6 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 import { LoginService } from '../modules/login';
 import { Env } from '../modules/env';
-import { MdSnackBar, MdSnackBarConfig } from '@angular/material';
 import { ViewContainerRef } from '@angular/core';
 import { SocketService } from '../modules/socket';
 //import { Store } from '@ngrx/store';
@@ -18,7 +17,6 @@ export class SiteBodyComponent {
   constructor(
     private env: Env,
     private loginService: LoginService,
-    private snackbar: MdSnackBar,
     public  viewContainerRef: ViewContainerRef,
     private socket: SocketService,
     ) {}

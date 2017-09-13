@@ -35,7 +35,7 @@ module.exports = function module(app: any, passport: any, strategy: any): void {
         const schema: any = (req.headers['x-forwarded-proto'] || '').toLowerCase();
         if (schema === 'https') {
             next();
-        } else if (process.env === 'production') {
+        } else if (process.env.NODE_ENV === "production") {
             res.redirect('https://' + req.get('host') + req.url);
         } else {
             next();
