@@ -1,14 +1,14 @@
 'use strict';
-
-import { Component } from '@angular/core';
+import { Component, HostBinding, OnInit } from '@angular/core';
 @Component({
-    selector:    'site-header',
+    selector: 'app-site-header',
     templateUrl: 'templates/site.header.html',
 })
 
-export class SiteHeaderComponent {
+export class SiteHeaderComponent implements OnInit{
     public user: string;
 
-    ngOnInit(): any {
+    public ngOnInit(): any {
     }
 }
+

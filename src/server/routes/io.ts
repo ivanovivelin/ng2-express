@@ -1,10 +1,11 @@
 'use strict';
 
-import * as  _  from 'lodash';
+import * as _ from 'lodash';
 import * as path from 'path';
 
-let jwt: any = require('jsonwebtoken');
-let apps: any = {};
+const jwt: any = require('jsonwebtoken');
+const apps: any = {};
+const ana = require(path.resolve(`./server/routes/app/anagrams/anagrams`));
 
 module.exports.handler = handler;
 
@@ -13,7 +14,7 @@ function handler(io: any): any {
 
   function fSocket(socket: any): any {
 
-    console.info(process.pid + ': new connection for ' + socket.id);
+    console.log(process.pid + ': new connection for ' + socket.id);
 
     socket.emitback = emit;
     socket.cast = broadcast;
@@ -27,7 +28,7 @@ function handler(io: any): any {
     function emit(all: any, data: any) {
       if (all === 'all') {
         io.sockets.in(data.channel).emit(data.scope, data.data);
-        console.info('sending to room ' + data.channel);
+        console.log('sending to room ' + data.channel);
       } else {
         socket.emit(data.scope, data.data);
       }
@@ -38,24 +39,22 @@ function handler(io: any): any {
     }
 
     function fError(err: any): any {
-      console.info('io.js err - Socket error ' + err);
+      console.log('io.js err - Socket error ' + err);
     }
 
     function module(req) {
       try {
-        require('../..' + req.script)[req.function](req, socket);
+        require(path.resolve(`./server/routes/app/` + req.script))[req.function](req, socket);
       } catch (err) {
         console.error('io.js : module function : ' + err);
       }
     }
 
-
-
     function disconnect(): any {
-      console.info(process.pid + ': Disconnection from ' + socket.id);
+      console.log(process.pid + ': Disconnection from ' + socket.id);
     }
     function connect(): any {
-      console.info('CLients are ', io.sockets.clients('NG2'));
+      console.log('CLients are ', io.sockets.clients('NG2'));
     }
   }
 }

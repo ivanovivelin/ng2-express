@@ -11,18 +11,18 @@ const redis: any = require('redis').createClient(credentials.port, credentials.h
 
 if (credentials.password !== undefined) {
     redis.auth(credentials.password, () => {
-        console.info('$redis => Connected to Redis on server ' + credentials.host);
+        console.log('$redis => Connected to Redis on server ' + credentials.host);
     });
 } else {
-    console.info('$redis => Connected to Redis on local');
+    console.log('$redis => Connected to Redis on local');
 }
 
 redis.on('connect', () => {
-    console.info('$redis => Connected to Redis');
+    console.log('$redis => Connected to Redis');
 });
 
 redis.on('error', (err: any) => {
-    console.info('$redis => Redis error: ', err);
+    console.log('$redis => Redis error: ', err);
 });
 
 module.exports = redis;

@@ -5,6 +5,7 @@ import * as compression from 'compression';
 import * as express from 'express';
 import * as session from 'express-session';
 import * as path from 'path';
+import * as handler from '../routes/common/dictionary';
 
 const redisstore: any = require('connect-redis')(session);
 const redis: any = require('./redis');
@@ -35,7 +36,7 @@ module.exports = function module(app: any, passport: any, strategy: any): void {
         const schema: any = (req.headers['x-forwarded-proto'] || '').toLowerCase();
         if (schema === 'https') {
             next();
-        } else if (process.env.NODE_ENV === "production") {
+        } else if (process.env.NODE_ENV === 'production') {
             res.redirect('https://' + req.get('host') + req.url);
         } else {
             next();
@@ -76,7 +77,7 @@ module.exports = function module(app: any, passport: any, strategy: any): void {
 
     passport.use(new strategy({
             clientID: 'clientID', // put your clientID
-            clientSecret: 'clientSecret', //put your clientSecret
+            clientSecret: 'clientSecret', // put your clientSecret
             callbackURL: 'callbackURL', // put your callbackURL
             profileFields: ['id', 'displayName', 'photos', 'email'],
         }, (accessToken: any, refreshToken: any, profile: any, cb: any) => {
@@ -98,10 +99,10 @@ module.exports = function module(app: any, passport: any, strategy: any): void {
 
 function ensureAuthenticated(req: any, res: any, next: any) {
     if (req.isAuthenticated()) {
-        console.info('$express (ensureAuthenticated) => authenticated');
+        console.log('$express (ensureAuthenticated) => authenticated');
         res.sendFile(path.resolve('app') + '/main.js');
     } else {
-        console.info('$express (ensureAuthenticated) => not authenticated');
+        console.log('$express (ensureAuthenticated) => not authenticated');
         res.sendFile(path.resolve('app') + '/main.js');
     }
 }

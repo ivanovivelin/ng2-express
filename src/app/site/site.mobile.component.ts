@@ -5,7 +5,7 @@ import { Component } from '@angular/core';
 import { Env } from 'io-ng2-util/common/env';
 
 @Component({
-    selector: 'site-mobile',
+    selector: 'app-site-mobile',
     template: './templates/site.mobile.html',
 })
 

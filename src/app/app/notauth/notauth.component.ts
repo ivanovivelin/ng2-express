@@ -1,14 +1,13 @@
 'use strict';
-
 import { Component, HostBinding, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'not-auth',
+    selector: 'app-not-auth',
     templateUrl: 'templates/notauth.component.html',
 })
 
-export class NotauthComponent {
+export class NotAuthComponent implements OnInit {
   title = 'NotAuth';
   constructor() {}
-    ngOnInit(): any {}
+    public ngOnInit(): any {}
 }

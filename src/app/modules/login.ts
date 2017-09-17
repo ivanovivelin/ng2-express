@@ -26,14 +26,14 @@ export class LoginService {
         let cookie: string = this.dts.getCookie('io-user');
 
         if (!cookie) {
-            console.info('$login (setUser) => no cookie');
-            let LS_User: any = this.localStorage.get('io-token');
+            console.log('$login (setUser) => no cookie');
+            const LS_User: any = this.localStorage.get('io-token');
             if (LS_User) {
                 valid = true;
                 cookie = LS_User;
             }
         } else {
-            console.info('$login (setUser) => cookie');
+            console.log('$login (setUser) => cookie');
             valid = true;
             // tbdone guythis.$localStorage.user = cookie;
         }
@@ -43,14 +43,14 @@ export class LoginService {
             if (this.jwtHelper.isTokenExpired(cookie)) {
                 return this.env.revokeUser();
             }
-            console.info('$login (setUser token) => we have a token');
-            console.info('$login (setUser token) => token expires ' + this.jwtHelper.getTokenExpirationDate(cookie));
+            console.log('$login (setUser token) => we have a token');
+            console.log('$login (setUser token) => token expires ' + this.jwtHelper.getTokenExpirationDate(cookie));
 
-            let tokendec: any = this.jwtHelper.decodeToken(cookie);
-            let roles: any = tokendec.access || {};
-            let allowed: boolean = false;
+            const tokendec: any = this.jwtHelper.decodeToken(cookie);
+            const roles: any = tokendec.access || {};
+            let allowed = false;
 
-            console.info('$login (setUser roles) => ' + JSON.stringify(roles));
+            console.log('$login (setUser roles) => ' + JSON.stringify(roles));
 
             if (roles.author || roles.admin || roles.reader) {
                 allowed = true;

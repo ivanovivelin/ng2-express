@@ -3,12 +3,12 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'help',
+    selector: 'help-component',
     templateUrl: 'templates/help.component.html',
 })
 
-export class HelpComponent {
+export class HelpComponent implements OnInit{
   title = 'HelpComponent';
   constructor() {}
-    ngOnInit(): any {}
+    public ngOnInit(): any {}
 }

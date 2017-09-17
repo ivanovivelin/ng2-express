@@ -1,25 +1,21 @@
 'use strict';
 
-import { Directive, ElementRef, Renderer} from '@angular/core';
+import { Directive, ElementRef, Renderer, HostListener, HostBinding } from '@angular/core';
 
 @Directive({
-    selector: '[siteUserHover]',
-    host: {
-        '(mouseenter)': 'onMouseEnter()',
-        '(mouseleave)': 'onMouseLeave()',
-    },
+    selector: 'app-user-hover'
 })
 
-export class SiteUserHover {
+export class SiteUserHoverDirective {
 
+    constructor(private el: ElementRef, private renderer: Renderer) {}
 
-    constructor(private el: ElementRef, private renderer: Renderer) { }
-
-    onMouseEnter(): any {
+    @HostBinding('mouseenter') onMouseEnter(): any {
         this.renderer.setElementClass(this.el.nativeElement, 'active', true);
     }
-    onMouseLeave(): any {
+    @HostBinding('mouseenter') onMouseLeave(): any {
         this.renderer.setElementClass(this.el.nativeElement, 'active', false);
     }
 
 }
+

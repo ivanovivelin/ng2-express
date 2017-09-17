@@ -3,7 +3,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'site-footer',
+    selector: 'app-site-footer',
     templateUrl: 'templates/site.footer.html',
 })
 

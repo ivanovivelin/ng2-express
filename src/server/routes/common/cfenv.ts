@@ -6,8 +6,8 @@ function Credentials(process: string): any {
     return Env.getServiceCreds(process);
 }
 
-let modules: any = {
+let items: any = {
     Credentials,
 };
 
-module.exports = modules;
+module.exports = items;

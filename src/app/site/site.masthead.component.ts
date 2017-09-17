@@ -3,7 +3,7 @@
 import { Component } from '@angular/core';
 
 @Component({
-    selector: 'site-masthead',
+    selector: 'app-site-masthead',
     templateUrl: 'templates/site.masthead.html',
 })
 export class SiteMastheadComponent {

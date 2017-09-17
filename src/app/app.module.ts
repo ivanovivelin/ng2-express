@@ -12,18 +12,20 @@ import { SiteComponents } from './site/site.components';
 import { SiteBodyComponent } from './site/site.body.component';
 import { SiteMastheadComponent } from './site/site.masthead.component';
 import { NotfoundComponent } from './app/notfound/notfound.component';
-import { NotauthComponent } from './app/notauth/notauth.component';
+import { NotAuthComponent } from './app/notauth/notauth.component';
 import { HomeMainComponent } from './app/home/home.main.component';
 import { HelpComponent } from './app/help/help.component';
 import { Routing } from './main.routing';
 import { SocketService } from './modules/socket';
+import { AppMaterialModule } from './modules/material.module';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 @NgModule({
   declarations: [
     SiteBodyComponent,
     SiteMastheadComponent,
     HelpComponent,
     NotfoundComponent,
-    NotauthComponent,
+    NotAuthComponent,
     HomeMainComponent,
     ...SiteComponents,
   ],
@@ -34,6 +36,8 @@ import { SocketService } from './modules/socket';
     Routing,
     ReactiveFormsModule,
     ReactiveFormsModule,
+    AppMaterialModule,
+    BrowserAnimationsModule
   ],
   providers: [
     DTS,

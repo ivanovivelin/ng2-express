@@ -3,12 +3,12 @@
 import { Component, HostBinding, OnInit } from '@angular/core';
 
 @Component({
-    selector: 'not-found',
+    selector: 'app-not-found',
     templateUrl: 'templates/notfound.component.html',
 })
 
-export class NotfoundComponent {
-  title = 'NotFound';
-  constructor() {}
-    ngOnInit(): any {}
+export class NotfoundComponent implements OnInit {
+    title = 'NotFound';
+    constructor() {}
+    public ngOnInit(): any {}
 }

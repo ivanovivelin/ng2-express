@@ -50,10 +50,10 @@ export class Env {
             if (!obj.hasOwnProperty(prop)) {
                 continue;
             }
-            // console.info(prop + ' = ' + obj[prop]);
+            // console.log(prop + ' = ' + obj[prop]);
             this.user[prop] = obj[prop];
         }
-        console.info('$env (setUser show email) => ', this.user.email);
+        console.log('$env (setUser show email) => ', this.user.email);
     }
 
     public getUser(): any {

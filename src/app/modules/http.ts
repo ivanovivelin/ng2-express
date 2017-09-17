@@ -29,7 +29,7 @@ export class HttpService {
     }
 
     public httpGet(url: string): Observable<any[]> {
-        // console.info('$http.service (httpGet)');
+        // console.log('$http.service (httpGet)');
         return this.http.get(url, this.options)
             .map(this.extractData)
             .catch(this.handleError);
@@ -67,7 +67,7 @@ export class HttpService {
         msg += ' - Url : ' + err.url;
         msg += ' - On ' + Date();
 
-        console.info('$http.service (received observer error) => ' + msg); // log to console instead
+        console.log('$http.service (received observer error) => ' + msg); // log to console instead
         return Observable.throw(msg);
     }
 

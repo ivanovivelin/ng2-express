@@ -1,10 +1,16 @@
 <div class='site-wrapper'>
     <div class='site-wrapper-inner'>
-        <site-masthead></site-masthead>
-        <site-header></site-header>
-        <home-main></home-main>
+        <app-site-masthead></app-site-masthead>
+        <app-site-header></app-site-header>
+        <app-home-main></app-home-main>
         <router-outlet></router-outlet>
-        <site-footer></site-footer>
+        <app-site-footer></app-site-footer>
     </div>
-    <button (click)="sendMessage()"></button>
+    <h2>Please enter a word to look for anagrams !</h2>
+    <form class="example-form">
+            <md-form-field class="example-full-width">
+              <input mdInput placeholder="Enter a word" [(ngModel)]="word" [ngModelOptions]="{standalone: true}">
+            </md-form-field>
+    </form>
+    <button md-button (click)="sendMessage(word)">Search</button>
 </div>

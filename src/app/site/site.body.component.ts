@@ -5,15 +5,16 @@ import { LoginService } from '../modules/login';
 import { Env } from '../modules/env';
 import { ViewContainerRef } from '@angular/core';
 import {SocketService} from '../modules/socket';
-//import { Store } from '@ngrx/store';
+// import { Store } from '@ngrx/store';
 
 @Component({
-    selector: 'site-body',
+    selector: 'app-site-body',
     templateUrl: 'templates/site.body.html',
 })
 
-export class SiteBodyComponent {
-  title = 'Angular 2 Boilerplate';
+export class SiteBodyComponent implements OnInit {
+  title = '';
+  word = '';
   constructor(
     private env: Env,
     private loginService: LoginService,
@@ -21,18 +22,18 @@ export class SiteBodyComponent {
     private socket: SocketService,
     ) {}
     public ngOnInit(): void {
-        console.info('$site.body (init)=> logging in');
-        this.loginService.setUser();
-        this.socket.module('all', {
-            data: "Emitting",
-            channel: "NG2"
-        });        
+        console.log('$site.body (init)=> logging in');
     }
 
-    public sendMessage() {
+    public sendMessage(str: any) {
+        console.log(`Entered word is => `, str);
         this.socket.module('all', {
-            data: "Emitting",
-            channel: "NG2"
+            data: {
+                word: str
+            },
+            script: `anagrams/anagrams`,
+            function: `checkIfAnagram`
         });
     }
 }
+
