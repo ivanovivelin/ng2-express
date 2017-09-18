@@ -125,9 +125,10 @@ const word = process.argv[2] || `abc`;
  * @param word {}
  */
 
+/*
 handler.checkIfAnagram(process.argv[2]).then((data) => {
     console.log(`Results found => ${data}`);
 }).catch((err) => {
     console.error(err);
 });
-
+*/

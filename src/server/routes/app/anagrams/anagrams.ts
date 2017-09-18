@@ -29,7 +29,13 @@ function checkIfAnagram(req: any, socket: any): Promise<any> {
            result = dictionary[sorted] ? dictionary[sorted] : `${req.data.word} not in Dictionary`;
            const hrend = process.hrtime(hrstart);
            console.log('Execution time for search (hr): %ds %dms', hrend[0], hrend[1]/1000000);
-           resolve(result); // return if found any anagrams
+           socket.emitback('', {
+            data: {
+                data: result
+            },
+            scope: `anagrams.component`
+            });
+           // resolve(result); // return if found any anagrams
        }
     });
 }

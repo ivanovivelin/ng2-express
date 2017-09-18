@@ -6,11 +6,16 @@
         <router-outlet></router-outlet>
         <app-site-footer></app-site-footer>
     </div>
+    <div style="text-align: center;">
     <h2>Please enter a word to look for anagrams !</h2>
     <form class="example-form">
             <md-form-field class="example-full-width">
               <input mdInput placeholder="Enter a word" [(ngModel)]="word" [ngModelOptions]="{standalone: true}">
             </md-form-field>
     </form>
-    <button md-button (click)="sendMessage(word)">Search</button>
+    <button md-button (click)="sendMessage(word)" color="primary">Search</button>
+    <md-chip-list>
+            <md-chip *ngFor="let anagram of results" selected="true">{{anagram}}</md-chip>
+    </md-chip-list>
+    </div>
 </div>

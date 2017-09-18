@@ -5,6 +5,7 @@ import { LoginService } from '../modules/login';
 import { Env } from '../modules/env';
 import { ViewContainerRef } from '@angular/core';
 import {SocketService} from '../modules/socket';
+import {MdChipsModule, MdChipList} from '@angular/material';
 // import { Store } from '@ngrx/store';
 
 @Component({
@@ -15,6 +16,7 @@ import {SocketService} from '../modules/socket';
 export class SiteBodyComponent implements OnInit {
   title = '';
   word = '';
+  public results: any;
   constructor(
     private env: Env,
     private loginService: LoginService,
@@ -23,6 +25,9 @@ export class SiteBodyComponent implements OnInit {
     ) {}
     public ngOnInit(): void {
         console.log('$site.body (init)=> logging in');
+        this.socket.listen(`anagrams.component`).subscribe(data => {
+            this.results = data.data;
+        });
     }
 
     public sendMessage(str: any) {

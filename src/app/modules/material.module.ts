@@ -15,6 +15,7 @@ import {
   MdGridListModule,
   MdMenuModule,
   MdSelectModule,
+  MdChipsModule,
 } from '@angular/material';
 
 @NgModule({
@@ -33,6 +34,7 @@ import {
     MdGridListModule,
     MdMenuModule,
     MdSelectModule,
+    MdChipsModule,
   ],
   declarations: [],
   exports: [
@@ -48,7 +50,8 @@ import {
     MdSnackBarModule,
     MdGridListModule,
     MdMenuModule,
-    MdSelectModule
+    MdSelectModule,
+    MdChipsModule
   ]
 })
 export class AppMaterialModule { }
